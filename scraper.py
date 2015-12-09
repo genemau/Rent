@@ -9,7 +9,7 @@ import re
 import string
 
 extractedOn = datetime.strftime(datetime.now(), '%Y-%m-%d %H:%M:%S')
-dictReader = csv.DictReader(open('suburbs.csv', 'rb'))
+#dictReader = csv.DictReader(open('suburbs.csv', 'rb'))
 errorValue=''
 
 def getNextLink(root):
