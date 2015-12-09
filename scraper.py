@@ -1,18 +1,4 @@
-Skip to content
-Sign up Sign in
-This repository  
-Search
-Explore
-Features
-Enterprise
-Pricing
- Watch 1  Star 0  Fork 0 genemau/Doma_r
- Code  Issues 0  Pull requests 0  Pulse  Graphs
-Branch: master Find file Copy pathDoma_r/scraper.py
-6644e77  on Aug 10
-@genemau genemau Update scraper.py
-1 contributor
-RawBlameHistory     108 lines (79 sloc)  2.71 KB
+
 import scraperwiki
 from lxml import html
 import lxml
@@ -74,22 +60,22 @@ def parseHouse(houseEl, suburb):
             h_salesType = errorValue
 
         # Save found data
-        scraperwiki.sqlite.save(unique_keys=['extracted_on','address'], data={
-            "extracted_on": extractedOn,
-            "suburb": suburb,
-	    "address": h_address,
-            "bedrooms": h_bedrooms,
-            "bathrooms": h_bathrooms,
-            "carparks": h_carparks,
-            "sales_type": h_salesType,
-            "price_text": h_price
-            })
-        #print h_address
-        #print h_bedrooms
-        #print h_bathrooms
-        #print h_price
-        #print h_salesType
-        #print '----------------------------------------------------'
+        #scraperwiki.sqlite.save(unique_keys=['extracted_on','address'], data={
+        #    "extracted_on": extractedOn,
+        #    "suburb": suburb,
+	#    "address": h_address,
+        #    "bedrooms": h_bedrooms,
+        #    "bathrooms": h_bathrooms,
+        #    "carparks": h_carparks,
+        #    "sales_type": h_salesType,
+        #    "price_text": h_price
+        #    })
+        print h_address
+        print h_bedrooms
+        print h_bathrooms
+        print h_price
+        print h_salesType
+        print '----------------------------------------------------'
 
 
 def parse(url, suburb):
@@ -113,12 +99,11 @@ def parse(url, suburb):
     else:
         parse(nextLink, suburb)
 
-#parse(getStartURL('cheltenham', '3030'))
+parse(getStartURL('cheltenham', '3030'))
 
-for line in dictReader:
-    print 'Scraping ' + line["Suburb"]  	
-    parse(getStartURL(
-       suburb=line["Suburb"],
-       postcode=line["PostCode"]), line["Suburb"])
-Status API Training Shop Blog About Pricing
-© 2015 GitHub, Inc. Terms Privacy Security Contact Help
+#for line in dictReader:
+#    print 'Scraping ' + line["Suburb"]  	
+#    parse(getStartURL(
+#       suburb=line["Suburb"],
+#       postcode=line["PostCode"]), line["Suburb"])
+
