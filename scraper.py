@@ -99,7 +99,7 @@ def parse(url, suburb):
     else:
         parse(nextLink, suburb)
 
-parse(getStartURL('cheltenham', '3030'))
+parse(getStartURL('cheltenham', '3030'), 'cheltenham')
 
 #for line in dictReader:
 #    print 'Scraping ' + line["Suburb"]  	
